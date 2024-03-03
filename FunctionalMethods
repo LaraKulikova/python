@@ -1,1 +1,106 @@
+# # 1.	Используя функцию map() переписать функцию
+# # items = [1, 2, 3, 4, 5]
+# # squared = []
+# # for i in items:
+# #     squared.append(i**2)
+#
 
+items = [1, 2, 3, 4, 5]
+
+squared = list(map(lambda x: x**2, items))
+print(f"1.Результат возведения каждого элемента {items} в квадрат: ", squared)
+#
+# #
+# # 2.	Используйте функцию reduce() и перепишите код
+# #
+# # product = 1
+# # list = [1, 2, 3, 4]
+# # for num in list:
+# #     product = product * num
+#
+from functools import reduce
+
+number_list = [1, 2, 3, 4]
+product = reduce(lambda x, y: x * y, number_list, 1)
+print("2.Результат: ", product)
+
+
+#3.	Используйте функцию map() и перепишите код
+
+# numbers = [1, 2, 3, 4, 5]
+# squared = []
+# for num in numbers:
+#        squared.append(num ** 2)
+# print(squared)
+# #
+
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, numbers))
+
+print(f"3.Результат возведения каждого числа в квадрат: ", squared)
+
+
+# 4.	Объедините списки x = [1, 2, 3] и y = [4, 5, 6] с помощью функции zip()
+
+x = [1, 2, 3]
+y = [4, 5, 6]
+res = list(zip(x,y))
+print(f"4.Результат объединения списков {x} и {y} c "
+      f"\n  помощью фунции zip(): ",res)
+
+#
+# 5.	Используйте функцию zip() чтобы преобразовать код:
+#
+# name_hero = [
+#     'Hulk',
+#     'Mr. Fantastic',
+#     'Invisible Woman',
+#     'Doctor Strange',
+#     'Doctor Octopus',
+#     'Spider-Man',
+# ]
+#
+# name_real = [
+#     'Bruce Banner',
+#     'Reed Richards',
+#     'Sue Storm',
+#     'Stephen Strange',
+#     'Otto Octavius',
+#     'Peter Parker',
+# ]
+#
+# for i in range(len(name_hero)):
+#     print(name_hero[i], '-', name_real[i])
+#
+name_hero = [
+    'Hulk',
+    'Mr. Fantastic',
+    'Invisible Woman',
+    'Doctor Strange',
+    'Doctor Octopus',
+    'Spider-Man',
+]
+
+name_real = [
+    'Bruce Banner',
+    'Reed Richards',
+    'Sue Storm',
+    'Stephen Strange',
+    'Otto Octavius',
+    'Peter Parker',
+]
+realNameHero = list(zip(name_hero, name_real))
+
+print("\n\n5. Вывожу результат реальное имя героя:")
+for i in range(len(realNameHero)):
+    print(f"{i + 1}. {realNameHero[i][0]} is {realNameHero[i][1]}")
+
+
+#
+# 6.	С помощью функции filter() переместите из списка numbers = [1, 2, 4, 5, 7, 8, 10, 11]
+# нечетные элементы в новый список.
+#
+
+numbers = [1, 2, 4, 5, 7, 8, 10, 11]
+even_numbers = list(filter(lambda x: x % 2 != 0, numbers))
+print(f"Нечетные числа перемещенные из списка numbers = {numbers}: ",even_numbers)
