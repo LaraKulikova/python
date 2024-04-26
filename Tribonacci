@@ -1,0 +1,18 @@
+def trib_list(n):
+    if n == 0:
+        return [0]
+    else:
+        trib_nums = [0, 1, 1]
+        for _ in range(0, n):
+            next_num = trib_nums[-1] + trib_nums[-2] + trib_nums[-3] #сумма 3-х последних элементов
+            trib_nums.append(next_num) #добавить результат в массив
+        return trib_nums
+
+n =int(input("Введите количество чисел последовательности для обычного решения:"))
+print(f"Последовательность трибоначчи размером {n}: {trib_list(n)}")
+
+'''решение с помощью лямбда выражения'''
+tribonacci_list = lambda n: [0] if n == 0 else [0, 1] if n == 1 else [0, 1, 1] if n == 2 else [0, 1, 1] + [tribonacci_list(n-1)[-1] + tribonacci_list(n-2)[-1] + tribonacci_list(n-3)[-1] for _ in range(3, n)]
+
+n =int(input("Введите количество чисел последовательности для лямбда выражения:"))
+print(f"Последовательность трибоначчи размером {n}: {tribonacci_list(n)}")
